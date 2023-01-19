@@ -9,7 +9,6 @@ import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import Form from './Form/Form';
 import { Loader } from './Loader/Loader';
-
 import { selectIsLoading, selectError } from 'redux/selectors';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
