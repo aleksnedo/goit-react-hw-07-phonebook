@@ -7,7 +7,7 @@ import { selectContacts } from 'redux/selectors';
 
 const initialValues = {
   name: '',
-  number: '',
+  phone: '',
 };
 
 export default function Form() {
@@ -17,7 +17,7 @@ export default function Form() {
   const handleSubmit = (values, { resetForm }) => {
     const dublicateContact = findDublicate(values, contactsList);
     dublicateContact
-      ? alert(`${values.name} or ${values.number} is already in contacts`)
+      ? alert(`${values.name} or ${values.phone} is already in contacts`)
       : dispatch(addContact(values));
 
     resetForm();
@@ -27,7 +27,7 @@ export default function Form() {
     return contactsList.find(
       item =>
         item.name.toLowerCase() === contact.name.toLowerCase() ||
-        item.number === contact.number
+        item.phone === contact.phone
     );
   };
 
@@ -43,11 +43,11 @@ export default function Form() {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           />
         </Label>
-        <Label htmlFor="number">
+        <Label htmlFor="phone">
           Number
           <Input
             type="tel"
-            name="number"
+            name="phone"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           />

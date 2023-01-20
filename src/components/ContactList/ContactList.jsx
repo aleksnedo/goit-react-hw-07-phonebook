@@ -21,16 +21,16 @@ export default function ContactList() {
     dispatch(deleteContact(contactId));
   };
 
-  const filterContacts = getFilterContacts();
+  const visibleContacts = getFilterContacts();
 
   return (
     <List>
-      {filterContacts.length === 0 && <p>There is not any contacts</p>}
-      {filterContacts.map(({ id, name, number }) => {
+      {visibleContacts.length === 0 && <p>There is not any contacts</p>}
+      {visibleContacts.map(({ id, name, phone }) => {
         return (
           <Item key={id}>
             <Name>
-              {name}: <Number>{number}</Number>
+              {name}: <Number>{phone}</Number>
             </Name>
             <Button type="button" onClick={() => handleDelete(id)}>
               Delete
@@ -46,7 +46,7 @@ ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.exact({
       name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     })
   ),
