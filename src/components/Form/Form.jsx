@@ -1,10 +1,9 @@
 import { Formik } from 'formik';
+import { FormStyle, Label, Input, Button } from './Form.styled';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
-
-import { FormStyle, Label, Input, Button } from './Form.styled';
 
 const initialValues = {
   name: '',
